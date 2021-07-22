@@ -122,10 +122,46 @@ function palindromePermTests() {
     }
 }
 
+function oneAwayTests() {
+    var tests = [
+        {
+            "output": true,
+            "input1": "pale",
+            "input2": "ple"
+        },
+        {
+            "output": true,
+            "input": "pales",
+            "input2": "pale"
+        },
+        {
+            "output": true,
+            "input": "pale",
+            "input2": "bale"
+        },
+        {
+            "output": false,
+            "input": "pale",
+            "input2": "bake"
+        }
+    ];
+
+    console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 1.4 One Away Tests \n --------------------" );
+    
+    for (var i = 0; i < tests.length; i++) {
+        var test = tests[i];
+        var res = ch1.oneAway(test.input);
+        var pass = res === test.output; 
+        // green : red
+        var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+        console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res:" + res);
+    }
+}
+
 isUniqueTests();
 checkPermTests();
 urlifyTests();
 palindromePermTests();
-
+oneAwayTests();
 
 

@@ -19,6 +19,7 @@ function checkPermutation(str1, str2) {
 		return false;
 	}
 
+	// make a hash
 	let charArray = [];
 	for (let i = 0; i < str1.length; i++) {
 		const char = str1[i];
@@ -30,6 +31,7 @@ function checkPermutation(str1, str2) {
 		charArray[char.charCodeAt()]++;
 	}
 
+	// check if permuatation
 	for (let i = 0; i < str2.length; i++) {
 		const char = str2[i];
 		charArray[char.charCodeAt()]--;
@@ -75,6 +77,7 @@ function palindromePermutation(str) {
 	const isOdd = trimmedStr.length % 2 === 0 ? false : true;
 	let singleton = 0;
 
+	// check if it's a palindrome permutation
 	for (let i = 0; i < trimmedStr.length; i++) {
 		const char = trimmedStr[i];
 
@@ -91,7 +94,12 @@ function palindromePermutation(str) {
 
 	return true;
 }
+
 // TODO 1.5 One Away
+function oneAway(params) {
+	return false;
+}
+
 // TODO 1.6 String Compression
 // TODO 1.7 Rotate Matrix
 // TODO 1.8 Zero Matrix
@@ -101,5 +109,6 @@ module.exports = {
     urlify, 
 	isUnique,
 	checkPermutation,
-	palindromePermutation
+	palindromePermutation, 
+	oneAway
 };

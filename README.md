@@ -12,3 +12,8 @@
 
 ## Run JS Programs
 `node fileName`
+
+## Contents
+1. Ch1: Arrays and Strings
+	`node ch1-tests.js`
+2. Ch2: Linked Lists
