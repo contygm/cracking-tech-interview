@@ -95,12 +95,47 @@ function palindromePermutation(str) {
 	return true;
 }
 
-// TODO 1.5 One Away
-function oneAway(params) {
-	return false;
+// 1.5 One Away
+function oneAway(str1, str2) {
+	const lengthDiff = str1.length - str2.length;
+	if (lengthDiff > 1 || lengthDiff < -1) {
+		return false;
+	} 
+	else if (lengthDiff === 1) { // insert && remove
+		for (let i = 0; i < str1.length; i++) {
+			if (str1[i] !== str2[i] && str1[i+1] !== str2[i]) {
+				return false;
+			}
+		}
+	} else if (lengthDiff === 0) { // replace
+		let changedDetected = false;
+		for (let i = 0; i < str1.length; i++) {
+			if (!changedDetected && str1[i] !== str2[i]) {
+				changedDetected = true;
+			} else if(changedDetected && str1[i] !== str2[i]) {
+				return false;
+			}
+		}
+	}
+
+	return true;
 }
 
 // TODO 1.6 String Compression
+function stringCompression(str) {
+	let compressedStr = '';
+	let count = 0;
+	for (let i = 0; i < str.length; i++) {
+		const char = str[i];
+		count++;
+		if (str[i] !== str[i+1]) {
+			compressedStr += `${char}${count}`;
+			count = 0;
+		}
+	}
+
+	return compressedStr.length >= str.length ? str : compressedStr;
+}
 // TODO 1.7 Rotate Matrix
 // TODO 1.8 Zero Matrix
 // TODO 1.9 String Rotation
@@ -110,5 +145,6 @@ module.exports = {
 	isUnique,
 	checkPermutation,
 	palindromePermutation, 
-	oneAway
+	oneAway,
+	stringCompression
 };
