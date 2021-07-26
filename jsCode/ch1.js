@@ -121,7 +121,7 @@ function oneAway(str1, str2) {
 	return true;
 }
 
-// TODO 1.6 String Compression
+// 1.6 String Compression
 function stringCompression(str) {
 	let compressedStr = '';
 	let count = 0;
@@ -137,6 +137,10 @@ function stringCompression(str) {
 	return compressedStr.length >= str.length ? str : compressedStr;
 }
 // TODO 1.7 Rotate Matrix
+function rotateMatrix(matrix) {
+	return matrix;
+}
+
 // TODO 1.8 Zero Matrix
 // TODO 1.9 String Rotation
 
@@ -146,5 +150,6 @@ module.exports = {
 	checkPermutation,
 	palindromePermutation, 
 	oneAway,
-	stringCompression
+	stringCompression,
+	rotateMatrix
 };

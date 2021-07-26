@@ -197,11 +197,55 @@ function stringCompressionTests() {
     }
 }
 
+function rotateMatrix() {
+    var tests = [
+        {
+            "matrix": [
+                ['a', 'b', 'c', 'd'],
+                ['l', 'm', 'n', 'e'],
+                ['k', 'p', 'o', 'f'],
+                ['j', 'i', 'h', 'g']
+            ],
+            "output": [
+                ['j', 'k', 'l', 'a'],
+                ['i', 'p', 'm', 'b'],
+                ['h', 'o', 'n', 'c'],
+                ['g', 'f', 'e', 'd']
+            ],
+            "message": "4x4 matrix"
+        },
+        {
+            "matrix": [
+                ['a', 'b'],
+                ['d', 'c'],
+            ],
+            "output": [
+                ['d', 'a'],
+                ['b', 'b'],
+            ],
+            "message": "2x2 matrix"
+        }
+    ]
+
+    console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 1.6 Rotate Matrix Tests \n --------------------" );
+
+    for (var i = 0; i < tests.length; i++) {
+        var test = tests[i];
+        var res = ch1.rotateMatrix(test.matrix);
+        var pass = res === test.output; 
+        // green : red
+        var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+        console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res:" + res + " -> " +test.message );
+
+    }
+}
+
 isUniqueTests();
 checkPermTests();
 urlifyTests();
 palindromePermTests();
 oneAwayTests();
 stringCompressionTests();
+rotateMatrix();
 
 
