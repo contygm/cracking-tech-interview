@@ -143,32 +143,33 @@ function rotateMatrix(matrix) {
 	const layers = matrix.length / 2;
 	
 	// go through each layer
-	for (let layer = 0; layer < layers; layer++) { 
+	for (let layer = 0; layer < 1; layer++) { 
 
 		const lastIndex = matrix.length - 1 - layer;
 
 		// loop through each element in layer
 		// COLUMN / ROW
 		for (let i = 0; i < lastIndex; i++) {
+			console.log(i);
 			// use this for dec  reasing index
 			const offset = i - layer;
 
 			// top[i] (top right)
 			const temp = matrix[layer][lastIndex - offset];
 
-			console.log("left: ", matrix[layer][i]);
 			console.log("top: ", matrix[layer][lastIndex - offset]);
+			console.log("left: ", matrix[i][layer]);
+			console.log("bottom: ", matrix[lastIndex][i]);
 			console.log("right: ", matrix[lastIndex - offset][lastIndex]);
-			console.log("bottom: ", matrix[lastIndex - offset][i]);
 		
 			// left[i] into top[i]
-			matrix[layer][lastIndex - offset] = matrix[layer][i];
+			matrix[layer][lastIndex - offset] = matrix[i][layer];
 
 			// bottom[i] -> left[i]
-			matrix[layer][i] = matrix[lastIndex - offset][i];
+			matrix[i][layer] = matrix[lastIndex][i];
 
 			// right[i] -> bottom[i]
-			matrix[lastIndex - offset][i] = matrix[lastIndex - offset][lastIndex];
+			matrix[lastIndex][i] = matrix[lastIndex - offset][lastIndex];
 
 			// top[i] -> right[i]
 			matrix[lastIndex - offset][lastIndex]  = temp;
