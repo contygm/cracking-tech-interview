@@ -221,7 +221,7 @@ function rotateMatrix() {
             ],
             "output": [
                 ['d', 'a'],
-                ['b', 'b'],
+                ['c', 'b'],
             ],
             "message": "2x2 matrix"
         }
@@ -232,7 +232,8 @@ function rotateMatrix() {
     for (var i = 0; i < tests.length; i++) {
         var test = tests[i];
         var res = ch1.rotateMatrix(test.matrix);
-        var pass = res === test.output; 
+        var pass = JSON.stringify(res) === JSON.stringify(test.output);
+        console.log(res); 
         // green : red
         var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
         console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res:" + res + " -> " +test.message );
