@@ -227,7 +227,7 @@ function rotateMatrix() {
         }
     ]
 
-    console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 1.6 Rotate Matrix Tests \n --------------------" );
+    console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 1.7 Rotate Matrix Tests \n --------------------" );
 
     for (var i = 0; i < tests.length; i++) {
         var test = tests[i];

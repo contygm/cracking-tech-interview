@@ -138,6 +138,35 @@ function stringCompression(str) {
 }
 // TODO 1.7 Rotate Matrix
 function rotateMatrix(matrix) {
+
+	// Approach matrix in layers, starting outside
+	const layers = matrix.length / 2;
+	
+	// go through each layer
+	for (let layer = 0; layer < layers; layer++) { 
+
+		const lastIndex = matrix.length - 1 - layer;
+
+		// loop through each element in layer
+		for (let i = 0; i < matrix.length; i++) {
+
+			// top[i]
+			const temp = matrix[layer][i]
+		
+			// top[i] -> left[i]
+			matrix[layer][i] = matrix[lastIndex][layer];
+
+			// left[i] -> bottom[i]
+			matrix[lastIndex][layer] = matrix[lastIndex][lastIndex];
+
+			// bottom[i] -> right[i]
+			matrix[lastIndex][lastIndex] = matrix[lastIndex][layer]
+
+			// right[i] -> temp
+			matrix[layer][lastIndex] = temp;
+		}
+	}
+
 	return matrix;
 }
 
