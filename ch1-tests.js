@@ -233,7 +233,6 @@ function rotateMatrix() {
         var test = tests[i];
         var res = ch1.rotateMatrix(test.matrix);
         var pass = JSON.stringify(res) === JSON.stringify(test.output);
-        console.log(res); 
         // green : red
         var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
         console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res:" + res + " -> " +test.message );

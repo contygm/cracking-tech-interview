@@ -136,31 +136,25 @@ function stringCompression(str) {
 
 	return compressedStr.length >= str.length ? str : compressedStr;
 }
-// TODO 1.7 Rotate Matrix
+// 1.7 Rotate Matrix
 function rotateMatrix(matrix) {
 
 	// Approach matrix in layers, starting outside
 	const layers = matrix.length / 2;
 	
 	// go through each layer
-	for (let layer = 0; layer < 1; layer++) { 
+	for (let layer = 0; layer < 2; layer++) { 
 
 		const lastIndex = matrix.length - 1 - layer;
 
 		// loop through each element in layer
 		// COLUMN / ROW
-		for (let i = 0; i < lastIndex; i++) {
-			console.log(i);
+		for (let i = layer; i < lastIndex; i++) {
 			// use this for dec  reasing index
 			const offset = i - layer;
 
 			// top[i] (top right)
 			const temp = matrix[layer][lastIndex - offset];
-
-			console.log("top: ", matrix[layer][lastIndex - offset]);
-			console.log("left: ", matrix[i][layer]);
-			console.log("bottom: ", matrix[lastIndex][i]);
-			console.log("right: ", matrix[lastIndex - offset][lastIndex]);
 		
 			// left[i] into top[i]
 			matrix[layer][lastIndex - offset] = matrix[i][layer];
