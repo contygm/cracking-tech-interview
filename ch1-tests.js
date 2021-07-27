@@ -240,8 +240,23 @@ function rotateMatrixTests() {
     }
 }
 
-function zeroMatrixTest() {
+function zeroMatrixTests() {
     var tests = [
+        {
+            "matrix": [
+                [1, 1, 1, 1],
+                [1, 1, 0, 1],
+                [1, 1, 1, 1],
+                [1, 0, 1, 1]
+            ],
+            "output": [
+                [1, 0, 0, 1],
+                [0, 0, 0, 0],
+                [1, 0, 0, 1],
+                [0, 0, 0, 0]
+            ],
+            "message": "4x4 matrix, multiple 0"
+        },
         {
             "matrix": [
                 [1, 1, 1, 1],
@@ -255,7 +270,7 @@ function zeroMatrixTest() {
                 [1, 1, 0, 1],
                 [1, 1, 0, 1]
             ],
-            "message": "4x4 matrix"
+            "message": "4x4 matrix, single 0"
         },
         {
             "matrix": [
@@ -268,7 +283,7 @@ function zeroMatrixTest() {
                 [1, 0],
                 [1, 0]
             ],
-            "message": "3x2 matrix"
+            "message": "3x2 matrix, single 0"
         }
     ]
 
@@ -292,6 +307,6 @@ palindromePermTests();
 oneAwayTests();
 stringCompressionTests();
 rotateMatrixTests();
-zeroMatrixTest();
+zeroMatrixTests();
 
 

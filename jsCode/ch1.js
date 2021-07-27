@@ -174,10 +174,36 @@ function rotateMatrix(matrix) {
 	return matrix;
 }
 
-// TODO 1.8 Zero Matrix
+// 1.8 Zero Matrix
 // if element = 0 in MxN, make column and row 0
 function zeroMatrix(matrix) {
-	
+
+	// holds [row, col] for zero locations
+	let zeros = []; 
+
+	// find the zeros
+	for (let row = 0; row < matrix.length; row++) {
+		for (let col = 0; col < matrix[row].length; col++) {
+			if (matrix[row][col] === 0) {
+				zeros.push([row, col]);
+			}
+		}
+	}
+
+	// flip row + column to zero
+	zeros.forEach(zero => {
+		const zeroRow = zero[0];
+		const zeroCol = zero[1];
+
+		for (let row = 0; row < matrix.length; row++) {
+			matrix[row][zeroCol] = 0;
+		}
+
+		for (let col = 0; col < matrix[0].length; col++) {
+			matrix[zeroRow][col] = 0;
+		}
+	});
+
 	return matrix;
 }
 // TODO 1.9 String Rotation
