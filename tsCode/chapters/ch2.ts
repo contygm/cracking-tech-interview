@@ -1,8 +1,11 @@
 import { LinkedList } from "../classes/LinkedList";
-// const LinkedList = require("../classes/LinkedList.ts");
-// TODO 2.1 Remove Dups
 
+// TODO 2.1 Remove Dups
 export function removeDups(list:LinkedList):LinkedList {
+	// let node = list.head;
+	// while (node) {
+		
+	// }
 
 	return list;
 }
