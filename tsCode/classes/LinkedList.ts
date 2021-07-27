@@ -18,12 +18,11 @@ export class LinkedList {
 
 		let node:ListNode = this.head;
 
-		while (node.next !== null && node !== node) {
+		while (node.next !== null && node !== null) {
 			node = node.next;
 		}
 
-		node.next = new ListNode(data);
-
+		node.next = new ListNode(data);		
 		return node.next;
 	}
 	

@@ -1,9 +1,8 @@
 {
-	"name": "node-with-ts",
+	"name": "cracking-code-interview-problems",
 	"version": "1.0.0",
-	"description": "",
+	"description": "JS and TS answers to 'Cracking the Code Interview' problems",
 	"scripts": {
-	  "start": "tsc && node dist/index.js",
-	  "test": "echo \"Error: no test specified\" && exit 1"
+	  "ch2": "tsc && node dist/ch2-tests.js"
 	}
   }
