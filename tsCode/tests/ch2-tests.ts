@@ -1,5 +1,5 @@
-import * as ch2 from "./chapters/ch2";
-import * as helpers from "./tests/helpers";
+import * as ch2 from "../chapters/ch2";
+import * as helpers from "./helpers";
 
 function removeDupsTests() {
 	var tests = [
