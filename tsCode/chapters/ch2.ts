@@ -1,5 +1,9 @@
 // TODO 2.1 Remove Dups
 
+function removeDups(list:LinkedList) {
+
+	return list;
+}
 
 // TODO 2.2 Return Kth to Last
 // TODO 2.3 Delete Middle Nose
