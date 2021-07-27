@@ -1,5 +1,4 @@
-// import * as ch1 from './jsCode/ch1.js'
-const ch1 = require("./jsCode/ch1.js");
+const ch1 = require("./ch1.js");
 
 function checkNumArray(arr1, arr2) {
     if (arr1.length !== arr2.length) {

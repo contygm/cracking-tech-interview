@@ -207,7 +207,7 @@ function zeroMatrix(matrix) {
 	return matrix;
 }
 
-// TODO 1.9 String Rotation
+// 1.9 String Rotation
 function stringRotation(str1, str2) {
 	const longStr2 = str2 + str2;
 	if(str1.length === str2.length && str1.length > 0) {
