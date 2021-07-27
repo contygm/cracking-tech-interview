@@ -300,6 +300,46 @@ function zeroMatrixTests() {
     }
 }
 
+function stringRotationTests() {
+    var tests = [
+        {
+            "output": true,
+            "input1": "waterbottle",
+            "input2": "erbottlewat",
+            "msg": "standard rotation"
+        },
+        {
+            "output": false,
+            "input1": "cake",
+            "input2": "cace",
+            "msg": "same length, don't match"
+        },
+        {
+            "output": false,
+            "input1": "hello",
+            "input2": "lohe",
+            "msg": "lengths don't match"
+        },
+        {
+            "output": true,
+            "input1": "goodbye",
+            "input2": "byegood",
+            "msg": "standard rotation"
+        }
+    ];
+
+    console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 1.9 String Rotation Tests \n --------------------" );
+    
+    for (var i = 0; i < tests.length; i++) {
+        var test = tests[i];
+        var res = ch1.stringRotation(test.input1, test.input2);
+        var pass = res === test.output; 
+        // green : red
+        var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+        console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res:" + res + " -> " + test.msg);
+    }
+}
+
 isUniqueTests();
 checkPermTests();
 urlifyTests();
@@ -308,5 +348,4 @@ oneAwayTests();
 stringCompressionTests();
 rotateMatrixTests();
 zeroMatrixTests();
-
-
+stringRotationTests();
