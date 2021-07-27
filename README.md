@@ -10,6 +10,10 @@
 1. Compile: `csc fileName`
 2. Run: `mono exeFileName`
 
+## Run TS Programs
+1. Compile: `tcs fileName`
+2. Run: `node exeFileName`
+
 ## Run JS Programs
 `node fileName`
 

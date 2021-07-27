@@ -1,4 +1,4 @@
-class ListNode {
+export class ListNode {
 	public data:number; 
 	public next:ListNode;
 

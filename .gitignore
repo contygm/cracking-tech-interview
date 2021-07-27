@@ -2,4 +2,8 @@
 .dist/*
 .dist
 
+dist/
+dist/*
+dist
+
 tsCode/*.js

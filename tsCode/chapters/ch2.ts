@@ -1,6 +1,8 @@
+import { LinkedList } from "../classes/LinkedList";
+// const LinkedList = require("../classes/LinkedList.ts");
 // TODO 2.1 Remove Dups
 
-function removeDups(list:LinkedList) {
+export function removeDups(list:LinkedList):LinkedList {
 
 	return list;
 }
