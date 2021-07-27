@@ -150,34 +150,41 @@ function rotateMatrix(matrix) {
 		// loop through each element in layer
 		// COLUMN / ROW
 		for (let i = layer; i < lastIndex; i++) {
-			// use this for dec  reasing index
+			// use this for decreasing index
 			const offset = i - layer;
 
 			// top[i] (top right)
 			const temp = matrix[layer][lastIndex - offset];
 		
-			// left[i] into top[i]
+			// top[i] <- left[i] 
 			matrix[layer][lastIndex - offset] = matrix[i][layer];
 
-			// bottom[i] -> left[i]
+			// left[i] <- bottom[i]
 			matrix[i][layer] = matrix[lastIndex][i];
 
-			// right[i] -> bottom[i]
+			// bottom[i] <- right[i] 
 			matrix[lastIndex][i] = matrix[lastIndex - offset][lastIndex];
 
-			// top[i] -> right[i]
+			// right[i] <-  top[i]
 			matrix[lastIndex - offset][lastIndex]  = temp;
 
 		}
 	}
 
-	
-
 	return matrix;
 }
 
 // TODO 1.8 Zero Matrix
+// if element = 0 in MxN, make column and row 0
+function zeroMatrix(matrix) {
+	
+	return matrix;
+}
 // TODO 1.9 String Rotation
+function stringRotation(matrix) {
+
+	return matrix;
+}
 
 module.exports = {
     urlify, 
@@ -186,5 +193,7 @@ module.exports = {
 	palindromePermutation, 
 	oneAway,
 	stringCompression,
-	rotateMatrix
+	rotateMatrix,
+	zeroMatrix,
+	stringRotation
 };

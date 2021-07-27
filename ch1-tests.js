@@ -197,7 +197,7 @@ function stringCompressionTests() {
     }
 }
 
-function rotateMatrix() {
+function rotateMatrixTests() {
     var tests = [
         {
             "matrix": [
@@ -240,12 +240,58 @@ function rotateMatrix() {
     }
 }
 
+function zeroMatrixTest() {
+    var tests = [
+        {
+            "matrix": [
+                [1, 1, 1, 1],
+                [1, 1, 0, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1]
+            ],
+            "output": [
+                [1, 1, 0, 1],
+                [0, 0, 0, 0],
+                [1, 1, 0, 1],
+                [1, 1, 0, 1]
+            ],
+            "message": "4x4 matrix"
+        },
+        {
+            "matrix": [
+                [1, 0],
+                [1, 1],
+                [1, 1]
+            ],
+            "output": [
+                [0, 0],
+                [1, 0],
+                [1, 0]
+            ],
+            "message": "3x2 matrix"
+        }
+    ]
+
+    console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 1.8 Rotate Matrix Tests \n --------------------" );
+
+    for (var i = 0; i < tests.length; i++) {
+        var test = tests[i];
+        var res = ch1.zeroMatrix(test.matrix);
+        var pass = JSON.stringify(res) === JSON.stringify(test.output);
+        // green : red
+        var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+        console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res:" + res + " -> " +test.message );
+
+    }
+}
+
 isUniqueTests();
 checkPermTests();
 urlifyTests();
 palindromePermTests();
 oneAwayTests();
 stringCompressionTests();
-rotateMatrix();
+rotateMatrixTests();
+zeroMatrixTest();
 
 
