@@ -41,8 +41,15 @@ export function kthToLast(list:LinkedList, k:number) {
 }
 
 // TODO 2.3 Delete Middle Nose
-export function deleteMiddleNode(node:ListNode):void {
-	
+export function deleteMiddleNode(node:ListNode):boolean {
+	if (node === null || node.next === null) {
+		return false;
+	}
+
+	const next = node.next;
+	node.data = next.data;
+	node.next = next.next;
+	return true;
 }
 // TODO 2.4 Partition
 // TODO 2.5 Sum Lists
