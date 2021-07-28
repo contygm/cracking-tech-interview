@@ -124,6 +124,36 @@ function deleteMiddleNodeTests() {
 	}
 }
 
+function partitionTests() {
+	var tests = [
+		{
+			"input1": helpers.makeSingleLinkedList([3,5,8,5,10,2]),
+			"input2": 5,
+			"output": helpers.makeSingleLinkedList([3,1,2,10,5,5,8]),
+			"message": "even length array"
+		},
+		{
+			"input1": helpers.makeSingleLinkedList([0,1,6,4,1,2,3]),
+			"input2": 2,
+			"output": helpers.makeSingleLinkedList([0,1,1,6,4,2,3]),
+			"message": "odd length array"
+		}
+	]
+
+	console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 2.4 Partition Tests \n --------------------" );
+    
+	for (var i = 0; i < tests.length; i++) {
+		var test = tests[i];
+		var res = ch2.partition(test.input1, test.input2);
+		var pass = helpers.isMatchingSingleLinkedList(res, test.output);
+
+		// green : red
+		var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+		console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res:" + JSON.stringify(res.makeArray()) + " -> " +test.message );
+	}
+}
+
 removeDupsTests();
 kthToLastTests();
 deleteMiddleNodeTests();
+partitionTests();

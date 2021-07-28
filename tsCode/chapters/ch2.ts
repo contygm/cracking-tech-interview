@@ -40,7 +40,7 @@ export function kthToLast(list:LinkedList, k:number) {
 	return dataHash[index];
 }
 
-// TODO 2.3 Delete Middle Nose
+// 2.3 Delete Middle Nose
 export function deleteMiddleNode(node:ListNode):boolean {
 	if (node === null || node.next === null) {
 		return false;
@@ -51,7 +51,15 @@ export function deleteMiddleNode(node:ListNode):boolean {
 	node.next = next.next;
 	return true;
 }
+
 // TODO 2.4 Partition
+export function partition(list:LinkedList, breakpoint:number) {
+	// before point list
+
+	// after point list
+	
+	return list;
+}
 // TODO 2.5 Sum Lists
 // TODO 2.6 Palindrome
 // TODO 2.7 Intersection
