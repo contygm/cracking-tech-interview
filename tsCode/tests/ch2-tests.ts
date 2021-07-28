@@ -186,3 +186,4 @@ removeDupsTests();
 kthToLastTests();
 deleteMiddleNodeTests();
 partitionTests();
+sumListsTests();
