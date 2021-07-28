@@ -1,5 +1,7 @@
 import * as ch2 from "../chapters/ch2";
 import * as helpers from "./helpers";
+import { LinkedList } from "../classes/LinkedList";
+import { ListNode } from "../classes/ListNode";
 
 function removeDupsTests() {
 	var tests = [
@@ -61,7 +63,7 @@ function kthToLastTests() {
 		}
 	]
 
-	console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 2.1 Remove Dups Tests \n --------------------" );
+	console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 2.2 Return Kth to Last Element Tests \n --------------------" );
     
 	for (var i = 0; i < tests.length; i++) {
 		var test = tests[i];
@@ -74,5 +76,54 @@ function kthToLastTests() {
 	}
 }
 
+function deleteMiddleNodeTests() {
+
+	const list1 = new LinkedList();
+	let l1_node;
+	[0,1,2,3,4,5].forEach(num => {
+		const temp = list1.appendToEnd(num);
+		if(num === 2) {
+			l1_node = temp;
+		}
+	});
+
+	const list2 = new LinkedList();
+	let l2_node;
+	[0,1,2,3,4,5].forEach(num => {
+		const temp = list2.appendToEnd(num);
+		if(num === 4) {
+			l2_node = temp;
+		}
+	});
+
+	var tests = [
+		{
+			"input1": l1_node,
+			"input2": list1,
+			"output": helpers.makeSingleLinkedList([0,1,3,4,5]),
+			"message": "basic case"
+		},
+		{
+			"input1": l2_node,
+			"input2": list2,
+			"output": helpers.makeSingleLinkedList([0,1,2,3,5]),
+			"message": "basic case"
+		}
+	]
+
+	console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 2.3 Delete Middle Node Tests \n --------------------" );
+    
+	for (var i = 0; i < tests.length; i++) {
+		var test = tests[i];
+		var res = ch2.deleteMiddleNode(test.input1);
+		var pass = helpers.isMatchingSingleLinkedList(test.input2, test.output);
+
+		// green : red
+		var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+		console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res: " + JSON.stringify(test.input2.makeArray()) + " -> " +test.message );
+	}
+}
+
 removeDupsTests();
 kthToLastTests();
+deleteMiddleNodeTests();

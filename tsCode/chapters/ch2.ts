@@ -41,6 +41,9 @@ export function kthToLast(list:LinkedList, k:number) {
 }
 
 // TODO 2.3 Delete Middle Nose
+export function deleteMiddleNode(node:ListNode):void {
+	
+}
 // TODO 2.4 Partition
 // TODO 2.5 Sum Lists
 // TODO 2.6 Palindrome
