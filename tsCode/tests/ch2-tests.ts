@@ -127,9 +127,9 @@ function deleteMiddleNodeTests() {
 function partitionTests() {
 	var tests = [
 		{
-			"input1": helpers.makeSingleLinkedList([3,5,8,5,10,2]),
+			"input1": helpers.makeSingleLinkedList([3,5,8,5,10,2,1]),
 			"input2": 5,
-			"output": helpers.makeSingleLinkedList([3,1,2,10,5,5,8]),
+			"output": helpers.makeSingleLinkedList([3,2,1,5,8,5,10]),
 			"message": "even length array"
 		},
 		{

@@ -25,7 +25,7 @@ export function removeDups(list:LinkedList):LinkedList {
 }
 
 // 2.2 Return Kth to Last
-export function kthToLast(list:LinkedList, k:number) {
+export function kthToLast(list:LinkedList, k:number):number {
 	let dataHash:number[] = [];
 	let node:ListNode = list.head;
 	let count = 0;
@@ -40,7 +40,7 @@ export function kthToLast(list:LinkedList, k:number) {
 	return dataHash[index];
 }
 
-// 2.3 Delete Middle Nose
+// 2.3 Delete Middle Node
 export function deleteMiddleNode(node:ListNode):boolean {
 	if (node === null || node.next === null) {
 		return false;
@@ -53,12 +53,33 @@ export function deleteMiddleNode(node:ListNode):boolean {
 }
 
 // TODO 2.4 Partition
-export function partition(list:LinkedList, breakpoint:number) {
-	// before point list
+export function partition(list:LinkedList, point:number):LinkedList {
+	let beforePoint:LinkedList = new LinkedList();
+	let afterPoint:LinkedList = new LinkedList();
+	let node = list.head;
 
-	// after point list
-	
-	return list;
+	// split into 2 seperate lists based on point
+	while (node) {
+		if (node.data < point) {
+			beforePoint.appendToEnd(node.data);
+		} else {
+			afterPoint.appendToEnd(node.data);
+		}
+		
+		node = node.next;
+	}
+
+	// add the lists together
+	node = afterPoint.head;
+
+	while (node) {
+		beforePoint.appendToEnd(node.data);
+
+		node = node.next;
+	} 
+
+
+	return beforePoint;
 }
 // TODO 2.5 Sum Lists
 // TODO 2.6 Palindrome
