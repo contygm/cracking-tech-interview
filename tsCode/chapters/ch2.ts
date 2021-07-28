@@ -109,25 +109,33 @@ export function sumLists(num1:LinkedList, num2:LinkedList):LinkedList {
 	return sum;
 }
 
-// TODO 2.6 Palindrome
+// 2.6 Palindrome
 export function palindrome(list:LinkedList):boolean {
 	
 	// reverse the list
-	const reverseList:number[] = [];
 	let node = list.head;
-	while (node) {
-		reverseList.push(node.data);
+	let reverseHead:ListNode;
+
+	while (node) { 
+		let newNode = new ListNode(node.data);
+		// attach existing list  behind new Node
+		newNode.next = reverseHead;
+		// move newNode to head
+		reverseHead = newNode;	 
 		node = node.next;
 	}
 
-	// compare list and reverseList
+	// compare list and reverse
 	node = list.head;
-	while (node) {
-		if (node.data !== reverseList.pop()) {
+	let reverseNode = reverseHead;
+  
+	while (node && reverseNode) {
+		if (node.data !== reverseNode.data) {
 			return false;
 		}
 
 		node = node.next;
+		reverseNode = reverseNode.next; 
 	}
 
 	return true;
