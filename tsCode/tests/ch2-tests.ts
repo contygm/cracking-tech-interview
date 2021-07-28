@@ -219,9 +219,42 @@ function palindromeTests() {
 	}
 }
 
+function intersectionTests() {
+	// TODO build intersecting linked lists
+	var tests = [
+		{
+			// REMOVE place holder nodes for inputs
+			"input1": new ListNode(5),
+			"input2": new ListNode(5),
+			"output": true,
+			"message": "carry over values in nodeSums"
+		},
+		{
+			// REMOVE place holder nodes for inputs
+			"input1": new ListNode(5),
+			"input2": new ListNode(5),
+			"output": true,
+			"message": "base case: simple math"
+		}
+	];
+
+	console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 2.6 Intersection Tests \n --------------------");
+    
+	for (var i = 0; i < tests.length; i++) {
+		var test = tests[i];
+		var res = ch2.intersection(test.input1, test.input2);
+		var pass = res === test.output;
+
+		// green : red
+		var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+		console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res: " + res + " -> " + test.message );
+	}
+}
+
 removeDupsTests();
 kthToLastTests();
 deleteMiddleNodeTests();
 partitionTests();
 sumListsTests();
 palindromeTests();
+intersectionTests();

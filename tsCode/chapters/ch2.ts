@@ -142,4 +142,9 @@ export function palindrome(list:LinkedList):boolean {
 }
 
 // TODO 2.7 Intersection
+export function intersection(head1:ListNode, head2:ListNode):boolean {
+	
+	return false;
+}
+
 // TODO 2.8 Loop Detection
