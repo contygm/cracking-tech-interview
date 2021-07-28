@@ -110,5 +110,10 @@ export function sumLists(num1:LinkedList, num2:LinkedList):LinkedList {
 }
 
 // TODO 2.6 Palindrome
+export function palindrome(list:LinkedList):boolean {
+	
+	return false;
+}
+
 // TODO 2.7 Intersection
 // TODO 2.8 Loop Detection

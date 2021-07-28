@@ -182,8 +182,41 @@ function sumListsTests() {
 	}
 }
 
+function palindromeTests() {
+	var tests = [
+		{
+			"input": helpers.makeSingleLinkedList([0,1,2,1,0]),
+			"output": true,
+			"message": "odd length palindrome"
+		},
+		{
+			"input": helpers.makeSingleLinkedList([0,1,2,2,1,0]),
+			"output": true,
+			"message": "even length palindrome"
+		},
+		{
+			"input": helpers.makeSingleLinkedList([0,1,0,1,2]),
+			"output": false,
+			"message": "not palindrome, but close"
+		}
+	]
+
+	console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 2.6 Palindrome Tests \n --------------------" );
+    
+	for (var i = 0; i < tests.length; i++) {
+		var test = tests[i];
+		var res = ch2.palindrome(test.input);
+		var pass = res === test.output;
+
+		// green : red
+		var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+		console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res: " + res + " -> " + test.message );
+	}
+}
+
 removeDupsTests();
 kthToLastTests();
 deleteMiddleNodeTests();
 partitionTests();
 sumListsTests();
+palindromeTests();
