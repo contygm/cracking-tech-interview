@@ -25,30 +25,6 @@ export class LinkedList {
 		node.next = new ListNode(data);		
 		return node.next;
 	}
-	
-	/**
-	 * delete first instance of number in linked list
-	 */
-	public deleteNumber(data:number) {
-		if (this.head === null) {
-			return this.head;
-		}
-
-		let node:ListNode = this.head;
-		if (node.data === data) { // move head
-			return this.head.next;
-		}
-
-		while (node.next !== null && node !== null) {
-			if (node.next.data === data) {
-				node.next = node.next.next;	// remove node
-				return this.head;	// head stays the same
-			}
-			node = node.next;
-		}
-
-		return this.head;
-	}
 
 	/**
 	 * make the linked list into an array

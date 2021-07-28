@@ -1,3 +1,4 @@
+import { sum } from "lodash";
 import { LinkedList } from "../classes/LinkedList";
 import { ListNode } from "../classes/ListNode";
 
@@ -52,7 +53,7 @@ export function deleteMiddleNode(node:ListNode):boolean {
 	return true;
 }
 
-// TODO 2.4 Partition
+// 2.4 Partition
 export function partition(list:LinkedList, point:number):LinkedList {
 	let beforePoint:LinkedList = new LinkedList();
 	let afterPoint:LinkedList = new LinkedList();
@@ -81,7 +82,15 @@ export function partition(list:LinkedList, point:number):LinkedList {
 
 	return beforePoint;
 }
+
 // TODO 2.5 Sum Lists
+// digists are in reverse order
+// return sum of the numbers
+export function sumLists(num1:LinkedList, num2:LinkedList):LinkedList {
+	let sum = new LinkedList();
+	return sum;
+}
+
 // TODO 2.6 Palindrome
 // TODO 2.7 Intersection
 // TODO 2.8 Loop Detection
