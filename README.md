@@ -10,14 +10,12 @@
 1. Compile: `csc fileName`
 2. Run: `mono exeFileName`
 
-## Run TS Programs
-1. Compile: `tcs fileName`
-2. Run: `node exeFileName`
-
-## Run JS Programs
-`node fileName`
+## Run Chapter Tests (TS and JS)
+Run the command with `ch` + `{chapterNumber}`
+Example: `npm run ch2`
 
 ## Contents
 1. Ch1: Arrays and Strings
-	`node ch1-tests.js`
+	`npm run ch1`
 2. Ch2: Linked Lists
+	`npm run ch2`

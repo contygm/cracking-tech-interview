@@ -1,11 +1,23 @@
 import { LinkedList } from "../classes/LinkedList";
+import { ListNode } from "../classes/ListNode";
 
-// TODO 2.1 Remove Dups
+// 2.1 Remove Dups
 export function removeDups(list:LinkedList):LinkedList {
-	// let node = list.head;
-	// while (node) {
-		
-	// }
+
+	let node:ListNode = list.head;
+
+	let numsHash:boolean[] = [];
+	numsHash[node.data] = true;
+
+	while (node.next) {
+		if (numsHash[node.next.data]) {
+			// delete node
+			node.next = node.next.next;
+		} else {
+			numsHash[node.next.data] = true;
+			node = node.next;
+		}
+	}
 
 	return list;
 }

@@ -26,8 +26,8 @@ export function makeSingleLinkedList(nums:number[]):LinkedList {
 export function isMatchingSingleLinkedList(list1:LinkedList, list2:LinkedList):boolean {
 	let node1 = list1.head;
 	let node2 = list2.head;
-	while (node1.next !== null && node2.next !== null) {
-		if(node1.next !== node2.next) {
+	while (node1 !== null && node2 !== null) {
+		if(node1.data !== node2.data) {
 			return false;
 		}
 

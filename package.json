@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "JS and TS answers to 'Cracking the Code Interview' problems",
 	"scripts": {
-	  "ch2": "tsc && node dist/tests/ch2-tests.js"
+		"ch1": "node jsCode/ch1-tests.js",
+		"ch2": "tsc && node dist/tests/ch2-tests.js"
 	}
-  }
+}
