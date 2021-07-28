@@ -148,3 +148,6 @@ export function intersection(head1:ListNode, head2:ListNode):boolean {
 }
 
 // TODO 2.8 Loop Detection
+export function loopDetection(list1:LinkedList):ListNode {
+	return list1.head;
+}
