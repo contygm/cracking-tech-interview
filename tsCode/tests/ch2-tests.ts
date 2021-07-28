@@ -198,6 +198,11 @@ function palindromeTests() {
 			"input": helpers.makeSingleLinkedList([0,1,0,1,2]),
 			"output": false,
 			"message": "not palindrome, but close"
+		},
+		{
+			"input": helpers.makeSingleLinkedList([0,1,1,2,0,1,1]),
+			"output": false,
+			"message": "not palindrome, but close"
 		}
 	]
 

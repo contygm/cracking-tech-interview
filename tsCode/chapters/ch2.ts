@@ -112,7 +112,25 @@ export function sumLists(num1:LinkedList, num2:LinkedList):LinkedList {
 // TODO 2.6 Palindrome
 export function palindrome(list:LinkedList):boolean {
 	
-	return false;
+	// reverse the list
+	const reverseList:number[] = [];
+	let node = list.head;
+	while (node) {
+		reverseList.push(node.data);
+		node = node.next;
+	}
+
+	// compare list and reverseList
+	node = list.head;
+	while (node) {
+		if (node.data !== reverseList.pop()) {
+			return false;
+		}
+
+		node = node.next;
+	}
+
+	return true;
 }
 
 // TODO 2.7 Intersection
