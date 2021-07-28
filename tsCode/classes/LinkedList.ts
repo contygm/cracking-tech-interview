@@ -27,9 +27,9 @@ export class LinkedList {
 	}
 	
 	/**
-	 * delete node from anywhere in linked list
+	 * delete first instance of number in linked list
 	 */
-	public delete(data:number) {
+	public deleteNumber(data:number) {
 		if (this.head === null) {
 			return this.head;
 		}

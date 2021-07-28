@@ -33,4 +33,46 @@ function removeDupsTests() {
 	}
 }
 
+function kthToLastTests() {
+	var tests = [
+		{
+			"input1": helpers.makeSingleLinkedList([0,1,2,3,4,5]),
+			"input2" : 2,
+			"output": 3,
+			"message": "basic case: second to last"
+		},
+		{
+			"input1": helpers.makeSingleLinkedList([0,1,2,3,4,5,6]),
+			"input2": 4, 
+			"output": 2,
+			"message": "basic case: 4th to last"
+		},
+		{
+			"input1": helpers.makeSingleLinkedList([0,1,2,3]),
+			"input2": 3, 
+			"output": 0,
+			"message": "return first element"
+		},
+		{
+			"input1": helpers.makeSingleLinkedList([0,1,2,3,4,5]),
+			"input2": 0, 
+			"output": 5,
+			"message": "return last element"
+		}
+	]
+
+	console.log('\x1b[36m%s\x1b[0m', " -------------------- \n 2.1 Remove Dups Tests \n --------------------" );
+    
+	for (var i = 0; i < tests.length; i++) {
+		var test = tests[i];
+		var res = ch2.kthToLast(test.input1, test.input2);
+		var pass = res === test.output;
+
+		// green : red
+		var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
+		console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res: " + res + " -> " +test.message );
+	}
+}
+
 removeDupsTests();
+kthToLastTests();

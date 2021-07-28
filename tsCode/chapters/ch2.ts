@@ -2,6 +2,8 @@ import { LinkedList } from "../classes/LinkedList";
 import { ListNode } from "../classes/ListNode";
 
 // 2.1 Remove Dups
+// well i can't read and this could've been a double linked list
+// which would've been nice, but i'm leaving it
 export function removeDups(list:LinkedList):LinkedList {
 
 	let node:ListNode = list.head;
@@ -22,7 +24,22 @@ export function removeDups(list:LinkedList):LinkedList {
 	return list;
 }
 
-// TODO 2.2 Return Kth to Last
+// 2.2 Return Kth to Last
+export function kthToLast(list:LinkedList, k:number) {
+	let dataHash:number[] = [];
+	let node:ListNode = list.head;
+	let count = 0;
+	while (node) {
+		dataHash[count] = node.data;
+		count++;
+		node = node.next;
+	}
+
+	const index = count - 1 - k;
+
+	return dataHash[index];
+}
+
 // TODO 2.3 Delete Middle Nose
 // TODO 2.4 Partition
 // TODO 2.5 Sum Lists
