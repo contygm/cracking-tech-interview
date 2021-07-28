@@ -159,7 +159,7 @@ function sumListsTests() {
 			"input1": helpers.makeSingleLinkedList([7,1,6]),
 			"input2": helpers.makeSingleLinkedList([5,9,2]),
 			"output": helpers.makeSingleLinkedList([2,1,9]),
-			"message": "carry over values in sums"
+			"message": "carry over values in nodeSums"
 		},
 		{
 			"input1": helpers.makeSingleLinkedList([1,0,1]),

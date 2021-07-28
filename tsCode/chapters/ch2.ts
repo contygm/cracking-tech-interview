@@ -83,18 +83,25 @@ export function partition(list:LinkedList, point:number):LinkedList {
 	return beforePoint;
 }
 
-// TODO 2.5 Sum Lists
+// 2.5 Sum Lists
 // digists are in reverse order
 // return sum of the numbers
 export function sumLists(num1:LinkedList, num2:LinkedList):LinkedList {
 	let sum = new LinkedList();
 	let node1 = num1.head;
 	let node2 = num2.head;
+	let carryOver = 0;
 
 	while (node1 && node2) {
-		const nodeSum = node1.data + node2.data;
+		const nodeSum = node1.data + node2.data + carryOver;
 
-		sum.appendToEnd(nodeSum);
+		if (nodeSum > 9) {
+			carryOver = 1;
+			sum.appendToEnd(nodeSum%10);
+		} else {
+			sum.appendToEnd(nodeSum);
+			carryOver = 0;
+		}
 
 		node1 = node1.next;
 		node2 = node2.next;
