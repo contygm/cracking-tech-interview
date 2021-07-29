@@ -60,3 +60,25 @@ export function makeListsIntersecting(nums1:number[], nums2:number[]):ListNode[]
 
 	return [list1.head, list2.head];
 }
+
+export function makeLinkedLoop(nums:number[], loopStart:number):ListNode[] {
+	const list = new LinkedList();
+	let loopStartNode:ListNode;
+	let lastLoopNode:ListNode;
+
+	// make list, track key nodes
+	for (let i = 0; i < nums.length; i++) {
+		if (nums[i] === loopStart) {
+			loopStartNode = list.appendToEnd(nums[i]);
+		} else if(i === nums.length-1) {
+			lastLoopNode = list.appendToEnd(nums[i]);
+		} else {
+			list.appendToEnd(nums[i]);
+		}
+	}
+
+	// complete the loop
+	lastLoopNode.next = loopStartNode;
+
+	return [list.head, loopStartNode];
+}

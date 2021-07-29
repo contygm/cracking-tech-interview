@@ -2,6 +2,7 @@ import * as ch2 from "../chapters/ch2";
 import * as helpers from "./helpers";
 import { LinkedList } from "../classes/LinkedList";
 import { ListNode } from "../classes/ListNode";
+import { nodeName } from "jquery";
 
 function removeDupsTests() {
 	var tests = [
@@ -220,18 +221,14 @@ function palindromeTests() {
 }
 
 function intersectionTests() {
-	// TODO build intersecting linked lists
-
-	const testListHeads = helpers.makeListsIntersecting([3,1,5,9,7,2,1], [3,1,4,6,7,2,1]);
+	const [firstListHead, secondListHead] = helpers.makeListsIntersecting([3,1,5,9,7,2,1], [3,1,4,6,7,2,1]);
 	const testList1 = helpers.makeSingleLinkedList([0,1,2,3,4,5,6]);
 	const testList2 = helpers.makeSingleLinkedList([9,8,7,3,4,5,6]);
 
 	var tests = [
 		{
-			"input1": testListHeads[0],
-			"input2": testListHeads[1],
-			// "input1": testList1.head,
-			// "input2": testList2.head,
+			"input1": firstListHead,
+			"input2": secondListHead,
 			"output": true,
 			"message": "base case: intersecting lists"
 		},
@@ -257,20 +254,18 @@ function intersectionTests() {
 }
 
 function loopDetectionTests() {
-	// TODO build link w loop 
-	// TODO keep track of expected loop point
+	const [linkedLoopHead, linkedLoopStart] = helpers.makeLinkedLoop([0,1,2,3,4,5,6], 3);
+
 	var tests = [
 		{
-			// REMOVE place holder node+list for inputs
-			"input": helpers.makeSingleLinkedList([0,1,0]),
-			"output": new ListNode(5),
-			"message": "carry over values in nodeSums"
+			"input": linkedLoopHead,
+			"output": linkedLoopStart,
+			"message": "base case: looped list"
 		},
 		{
-			// REMOVE place holder nodes for inputs
-			"input": helpers.makeSingleLinkedList([0,1,0]),
-			"output": new ListNode(5),
-			"message": "base case: simple math"
+			"input": helpers.makeSingleLinkedList([0,1,2,3,4,5,6]).head,
+			"output": null,
+			"message": "regular linked list"
 		}
 	];
 
@@ -278,13 +273,13 @@ function loopDetectionTests() {
     
 	for (var i = 0; i < tests.length; i++) {
 		var test = tests[i];
-		var res = ch2.loopDetection(test.input);
-		// TODO isSameNode function -> same data + same .next 
-		var pass = res === test.output;
+		var res = ch2.loopDetection(test.input);		
+		
+		var pass = res === null ? res===test.output : (res.data === test.output.data && res.next.data === test.output.next.data);
 
 		// green : red
 		var colorLog = pass ? '\x1b[32m%s\x1b[0m' : '\x1b[31m%s\x1b[0m';
-		console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res.data-res.next: " + res.data + "-" + res.next.data + " -> " + test.message );
+		console.log(colorLog, i + 1 + ". Pass: " + pass + " -> res: " + res + " -> " + test.message );
 	}
 }
 
