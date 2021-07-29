@@ -27,6 +27,24 @@ export class LinkedList {
 	}
 
 	/**
+	 * appendNodeToEnd
+	 */
+	public appendNodeToEnd(newNode:ListNode) {
+		if (this.head === null) {
+			this.head = newNode;
+			return this.head;
+		}
+
+		let node:ListNode = this.head;
+		while (node.next !== null && node !== null) {
+			node = node.next;
+		}
+
+		node.next = newNode;	
+		return node.next;
+	}
+
+	/**
 	 * make the linked list into an array
 	 */
 	public makeArray() {

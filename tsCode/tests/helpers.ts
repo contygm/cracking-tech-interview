@@ -1,4 +1,5 @@
 import { LinkedList } from "../classes/LinkedList";
+import { ListNode } from "../classes/ListNode";
 
 export function checkNumArray(arr1:number[], arr2:number[]):boolean {
 	if (arr1.length !== arr2.length) {
@@ -35,4 +36,27 @@ export function isMatchingSingleLinkedList(list1:LinkedList, list2:LinkedList):b
 		node2 = node2.next;
 	}
 	return true;
+}
+
+export function makeListsIntersecting(nums1:number[], nums2:number[]):ListNode[] {
+	const list1 = new LinkedList();
+	const list2 = new LinkedList();
+	
+	if (nums1.length !== nums2.length) {		
+		throw new Error('input arrays must be same length');
+	}
+
+	for (let i = 0; i < nums1.length; i++) {	
+		if ( i === Math.floor(nums1.length/2)) {
+			const newNode = list1.appendToEnd(nums1[i]);
+			list2.appendNodeToEnd(newNode);
+		} else if (i >= (nums1.length/2)) {
+			list1.appendToEnd(nums1[i]);
+		} else {
+			list1.appendToEnd(nums1[i]);
+			list2.appendToEnd(nums2[i]);
+		}
+	}
+
+	return [list1.head, list2.head];
 }

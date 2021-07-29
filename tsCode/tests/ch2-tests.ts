@@ -221,20 +221,25 @@ function palindromeTests() {
 
 function intersectionTests() {
 	// TODO build intersecting linked lists
+
+	const testListHeads = helpers.makeListsIntersecting([3,1,5,9,7,2,1], [3,1,4,6,7,2,1]);
+	const testList1 = helpers.makeSingleLinkedList([0,1,2,3,4,5,6]);
+	const testList2 = helpers.makeSingleLinkedList([9,8,7,3,4,5,6]);
+
 	var tests = [
 		{
-			// REMOVE place holder nodes for inputs
-			"input1": new ListNode(5),
-			"input2": new ListNode(5),
+			"input1": testListHeads[0],
+			"input2": testListHeads[1],
+			// "input1": testList1.head,
+			// "input2": testList2.head,
 			"output": true,
-			"message": "carry over values in nodeSums"
+			"message": "base case: intersecting lists"
 		},
 		{
-			// REMOVE place holder nodes for inputs
-			"input1": new ListNode(5),
-			"input2": new ListNode(5),
-			"output": true,
-			"message": "base case: simple math"
+			"input1": testList1.head,
+			"input2": testList2.head,
+			"output": false,
+			"message": "false intersection: same data, no intersect"
 		}
 	];
 
